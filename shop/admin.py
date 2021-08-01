@@ -12,15 +12,15 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'get_photo',
+    list_display = ['name', 'slug', 'price', 'get_image',
                     'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['price', 'available']
     search_fields = ('name', 'description')
     prepopulated_fields = {'slug': ('name',)}
 
-    def get_photo(self, obj):
-        if obj.photo:
-            return mark_safe(f'<img src="{obj.photo.url}" width="75px">')
+    def get_image(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" width="75px">')
         return 'Отсутствует'
-    get_photo.short_description = 'Фото'
+    get_image.short_description = 'Фото'
