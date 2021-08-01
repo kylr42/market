@@ -16,6 +16,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('shop:product_list_by_category', args=[self.slug])
+
 
 class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name='Название')
@@ -38,5 +41,5 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('products', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('shop:product_detail', args=[self.id, self.slug])
