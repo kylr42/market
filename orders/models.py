@@ -39,6 +39,7 @@ class OrderItem(models.Model):
                                 verbose_name='Цена')
     quantity = models.PositiveIntegerField(default=1,
                                            verbose_name='Кол-во')
+    braintree_id = models.CharField(max_length=150, blank=True)
 
     class Meta:
         verbose_name = 'Элемент заказа'

@@ -17,7 +17,7 @@
                 В вашей корзине:
                 <a href="{% url "cart:cart_detail" %}">
                     {{ total_items }} товар(-ов),
-                    {{ cart.get_total_price }}р.
+                    {{ cart.get_total_price }}₽
                 </a>
             {% else %}
                 Ваша корзина пуста.
